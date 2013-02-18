@@ -1,9 +1,14 @@
-<?php
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 
 	public function index() {
-		echo "hello world";
+		$data = array(
+			'title' => 'Swipe it, yo' 
+		);
+
+		$this->template->load('default', 'main', $data);
+
 	}
 
 }
