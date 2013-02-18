@@ -1,4 +1,4 @@
 sandbox-swipe-system
 ====================
 
-FUCKING SWIPE YO
+Written by Conner Charlebois and Nick Hentschel
