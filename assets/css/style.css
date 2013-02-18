@@ -1,0 +1,18 @@
+body {
+	font: normal 15px/27px Arial;
+}
+
+	.main-wrapper {
+		margin: 0 auto;
+		width: 65%;
+		border: 1px solid #000;
+		padding: 12px;
+	}
+
+		.sb-header {
+			text-align: center;
+		}
+
+			.sb-header img {
+				width: 65%;
+			}
