@@ -22,6 +22,14 @@ body {
 		}
 	*/
 
+	.stars {
+		position: absolute;
+		text-align: center;
+		z-index: 100;
+		width: 65%;
+		margin: 25% 0 0 0;
+	}
+
 	.star {
 		font-size: 4.0rem;
 		background: #0F0096;

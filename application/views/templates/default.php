@@ -8,8 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>		
 	</head>
-	<body>		
+	<body>
 		<div role="main" class="main-wrapper">
+			<div class="stars">&nbsp;</div>	
 			<header class="sb-header">
 				<img src="/assets/images/sandbox_header.png">
 			</header>
