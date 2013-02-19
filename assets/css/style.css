@@ -6,7 +6,7 @@ body {
 		margin: 0 auto;
 		width: 65%;
 		border: 1px solid #000;
-		padding: 12px;
+		padding: 12px; 
 	}
 
 		.sb-header {
@@ -16,3 +16,15 @@ body {
 			.sb-header img {
 				width: 65%;
 			}
+	/*
+		input[name="studentid"] {
+			visibility: hidden;&
+		}
+	*/
+
+	.star {
+		font-size: 4.0rem;
+		background: #0F0096;
+		color: #FFF;
+		padding: 5px;
+	}

@@ -14,6 +14,7 @@
 				<img src="/assets/images/sandbox_header.png">
 			</header>
 			<?php echo $body; ?>
+			<script type="text/javascript" src="/assets/javascript/main.js"></script>
 		</div>
 	</body>
 </html>
