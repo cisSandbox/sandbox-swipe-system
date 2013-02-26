@@ -1,1 +1,3 @@
-<p>Please swipe in</p>
+<div class="wel-message">
+	<p align="center">please swipe in</p>
+</div>

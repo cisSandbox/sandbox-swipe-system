@@ -12,7 +12,7 @@
 		<div role="main" class="main-wrapper">
 			<div class="stars">&nbsp;</div>	
 			<header class="sb-header">
-				<img src="/assets/images/sandbox_header.png">
+				<img src="/assets/images/CISandboxwithtag.png"/>
 			</header>
 			<?php echo $body; ?>
 			<script type="text/javascript" src="/assets/javascript/main.js"></script>
