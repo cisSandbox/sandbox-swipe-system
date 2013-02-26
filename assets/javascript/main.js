@@ -6,14 +6,19 @@ function showStar() {
 }
 
 function handleInput(e) {
-	if(input.length < 8 && reg.test(String.fromCharCode(e.which))) {
-		if(input.length == 7) {
+	if(reg.test(String.fromCharCode(e.which))) {
+		input += String.fromCharCode(e.which);
+		console.log(input);
+		console.log(e.which);
+		if(input.length == 8) {
+			console.log(input);
 			$('.stars').empty();
 			alert("Login Successful");
 		} else {
-			input += String.fromCharCode(e.which);
+			//input += String.fromCharCode(e.which);
 			showStar();
 		}
+
 	}
 }
 
