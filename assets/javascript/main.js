@@ -7,7 +7,7 @@
  *	
  *	TODO:
  *	Real documentation here
- *	Clean up code - it's not very pretty or efficient
+ *	Clean up code - it's not very pretty or efficient - Conner, maybe you can do better?
  * 
  * 
  */
