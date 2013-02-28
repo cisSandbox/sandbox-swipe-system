@@ -5,8 +5,6 @@ body {
 	.main-wrapper {
 		margin: 0 auto;
 		width: 65%;
-		border: 1px solid #000;
-		padding: 12px; 
 	}
 
 		.sb-header {
