@@ -22,20 +22,33 @@ function showStar() {
 function handleInput(e) {
 	if(reg.test(String.fromCharCode(e.which))) {
 		input += String.fromCharCode(e.which);
-		console.log(String.fromCharCode(e.which));
 		if(input.length == 8 && input.indexOf(';') === -1) {
-			console.log(input);
 			$('.stars').empty();
-			alert("Login Successful");
+			sendSubmission(input);
+			input = "";
 		} else if(input.length == 10) {
 			input = input.substring(2, input.length);
-			console.log(input);
 			$('.stars').empty();
-			alert("Login Successful");
+			sendSubmission(input);
+			input = "";
 		} else {
 			showStar();
 		}
 	}
+}
+
+function sendSubmission(id) {
+	if (!window.location.origin) window.location.origin = window.location.protocol+"//"+window.location.host;
+	$.ajax({
+		url:  window.location.origin + "/index.php/main/check_student",
+		type: 'POST',
+		data:  {
+			"id": id
+		},
+		success: function(msg) {
+			alert(msg);
+		}
+	});
 }
 
 $(document).ready(function(){

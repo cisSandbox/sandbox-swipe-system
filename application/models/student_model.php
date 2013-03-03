@@ -9,7 +9,7 @@ class Student_model extends CI_Model {
 
 	function get_student_by_id($id) {
 		$query = $this->db->query("select * from student where studentID = $id");
-		return $query->result();	
+		return $query->result();
 	}
 
 }
