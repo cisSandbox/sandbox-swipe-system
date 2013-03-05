@@ -1,5 +1,5 @@
 // reg input:   01234567
-// swipe input: ;001234567;
+// swipe input: ;00123456701;
 
 /**
  *
@@ -44,8 +44,8 @@ $(document).ready(function(){
 				$('.stars').empty();
 				sendSubmission(input);
 				input = "";
-			} else if(input.length == 10) {
-				input = input.substring(2, input.length);
+			} else if(input.length == 12) {
+				input = input.substring(2, input.length - 2);
 				$('.stars').empty();
 				sendSubmission(input);
 				input = "";
