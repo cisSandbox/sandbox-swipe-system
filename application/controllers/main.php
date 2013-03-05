@@ -14,7 +14,7 @@ class Main extends CI_Controller {
 		$this->load->model('Student_model');
 		$student = $this->Student_model->get_student_by_id($id);
 		if($student) {
-			echo "Welcome " . $student[0]->firstName . " " . $student[0]->lastName;
+			echo $student[0]->firstName . " " . $student[0]->lastName;
 		} else {
 			echo "Student not found";
 		}
