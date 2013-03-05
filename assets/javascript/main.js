@@ -33,6 +33,7 @@ $(document).ready(function(){
 	var reg   = new RegExp('^[0-9|;]+$');
 
 	$(document).keypress(function(e) {
+		// not totally tested, works fine on chrome on my Linux box, not working on chrome on my mac
 		if(e.which == 8 && input.length > 0) {
 			input = input.substring(0, input.length - 1);
 			$('.stars span:last-child').remove();
