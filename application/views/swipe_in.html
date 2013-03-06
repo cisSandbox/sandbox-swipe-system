@@ -1,0 +1,108 @@
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+
+
+	/* -------------------
+		Conner's Styles
+	--------------------- */
+	#help-wrapper, #class-wrapper{
+		width:960px;
+		margin:auto;
+	}
+
+	h3{
+		color:#333172;
+		text-align: center;
+	}
+
+	.button{
+		float:left;
+		background-color:#5972b4;
+		color:#fff;
+		text-decoration: none;
+		display:block;
+		width:426px;
+		margin:15px;
+		padding:75px 12px;
+		text-align:center;
+	}
+
+	.button2{
+		float:left;
+		background-color:#5972b4;
+		color:#fff;
+		text-decoration: none;
+		display:block;
+		width:120px;
+		margin:10px;
+		padding:25px 10px;
+		text-align:center;
+	}
+	.wrap{
+		margin:auto;
+	}
+	div{
+		display:block;
+	}
+
+</style>
+<script type="text/javascript">
+	var student = {};
+
+	function setHelp(foo){
+		student.help = foo;
+		// document.getElementById('foo').innerHTML += student.help;
+	}
+	function setClass(foo){
+		student.hclass = foo;
+		// document.getElementById('foo').innerHTML += student.hclass;
+	}
+</script>
+<body>
+
+<!--
+	This file contains the views for the frontend swipe-in portion of the application
+-->
+
+<div id="help">
+	<div id="help-wrapper">
+		<h3>Do you want help today, NAME?</h3>
+		<div id="button-wrapper">
+			<a onclick="setHelp('yes');" href="#" class="button">Yes</a>
+			<a onclick="setHelp('no');"href="#" class="button">No</a>
+		</div>
+	</div>
+</div>
+
+<div id="class">
+	<div id="class-wrapper">
+		<h3>What class would you like help with?</h3>
+		<div class="wrap">
+			<a onclick="setClass('IT101')" href="#" class="button2">IT 101</a>
+			<a onclick="setClass('CS150')" href="#" class="button2">CS 150</a>
+			<a onclick="setClass('CS180')" href="#" class="button2">CS 180</a>
+			<a onclick="setClass('CS213')" href="#" class="button2">CS 213</a>
+			<a onclick="setClass('CS240')" href="#" class="button2">CS 240</a>
+			<a onclick="setClass('CS280')" href="#" class="button2">CS 280</a>
+			<a onclick="setClass('CS314')" href="#" class="button2">CS 314</a>
+			<a onclick="setClass('CS350')" href="#" class="button2">CS 350</a>
+			<a onclick="setClass('CS360')" href="#" class="button2">CS 360</a>
+			<a onclick="setClass('CS420')" href="#" class="button2">CS 420</a>
+			<a onclick="setClass('CS460')" href="#" class="button2">CS 460</a>
+			<a onclick="setClass('CS480')" href="#" class="button2">CS 480</a>
+		</div>
+	</div>
+</div>
+
+
+<!-- <pre id="foo"></pre> -->
+
+</body>
+</html>
+
+
+
+
