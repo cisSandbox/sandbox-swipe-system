@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2013 at 01:51 AM
+-- Generation Time: Mar 10, 2013 at 10:04 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -55,7 +55,23 @@ CREATE TABLE IF NOT EXISTS `course` (
 --
 
 INSERT INTO `course` (`courseID`, `desc`) VALUES
-('IT 101', 'Introductory Information Technology Course');
+('CS150', 'Introduction to Data and Info. Management'),
+('CS180', 'Programming Fundamentals'),
+('CS213', 'The World Wide Web'),
+('CS240', 'Business Processing and Communications Infrastructure'),
+('CS280', 'Object-Oriented Application Development'),
+('CS314', 'Web Technologies and Trends'),
+('CS350', 'Database Management Systems'),
+('CS360', 'Business Systems Analysis and Modeling'),
+('CS401', 'Directed Study in Computer Systems'),
+('CS402', 'Advanced Computing Topics Seminar'),
+('CS420', 'Operating Systems Use, Technology, and Administration'),
+('CS421', 'Internship in Computer Systems'),
+('CS440', 'Advanced Net-Centric Computing'),
+('CS460', 'Applied Software Management'),
+('CS476', 'E-Business Infrastructure and Policy'),
+('CS480', 'Advanced Application Development Technology'),
+('IT101', 'Introduction to Information Technology');
 
 -- --------------------------------------------------------
 
@@ -69,6 +85,19 @@ CREATE TABLE IF NOT EXISTS `day` (
   PRIMARY KEY (`DayID`),
   UNIQUE KEY `dayName` (`dayName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `day`
+--
+
+INSERT INTO `day` (`DayID`, `dayName`) VALUES
+(4, 'Friday'),
+(0, 'Monday'),
+(5, 'Saturday'),
+(6, 'Sunday'),
+(3, 'Thursday'),
+(1, 'Tuesday'),
+(2, 'Wednesday');
 
 -- --------------------------------------------------------
 
@@ -85,6 +114,31 @@ CREATE TABLE IF NOT EXISTS `meeting_time` (
   KEY `block_3` (`block`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `meeting_time`
+--
+
+INSERT INTO `meeting_time` (`meetingID`, `block`) VALUES
+(20, 'M 6:30'),
+(6, 'M 9:55 R 11:20'),
+(9, 'MR 12:45'),
+(7, 'MW 11:20'),
+(13, 'MW 3:35'),
+(15, 'MW 5:00'),
+(23, 'R 6:30'),
+(21, 'T 6:30'),
+(8, 'TF 11:20'),
+(10, 'TF 12:45'),
+(12, 'TR 2:10'),
+(14, 'TR 3:35'),
+(16, 'TR 5:00'),
+(2, 'TR 8:30'),
+(4, 'TR 9:55'),
+(22, 'W 6:30'),
+(11, 'WF 2:10'),
+(3, 'WF 8:30'),
+(5, 'WF 9:55');
+
 -- --------------------------------------------------------
 
 --
@@ -98,6 +152,14 @@ CREATE TABLE IF NOT EXISTS `room` (
   UNIQUE KEY `roomName` (`roomName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `room`
+--
+
+INSERT INTO `room` (`roomID`, `roomName`) VALUES
+('SMI 212', 'CIS Quiet Study Room'),
+('SMI 234', 'CIS Sandbox');
+
 -- --------------------------------------------------------
 
 --
@@ -110,6 +172,13 @@ CREATE TABLE IF NOT EXISTS `semester` (
   PRIMARY KEY (`semesterID`),
   UNIQUE KEY `semesterCode` (`semesterCode`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `semester`
+--
+
+INSERT INTO `semester` (`semesterID`, `semesterCode`) VALUES
+('s2013', 'Spring 2013');
 
 -- --------------------------------------------------------
 
@@ -130,7 +199,18 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`studentID`, `firstName`, `lastName`, `classCode`) VALUES
+('03168669', 'Hailin', 'Kong', NULL),
+('03177203', 'Katie', 'Lieb', NULL),
+('03196224', 'Kunal', 'Deopare', NULL),
+('03199353', 'Jiayn', 'Han', NULL),
+('03205196', 'Brendan', 'Bourdeau', NULL),
 ('03224844', 'Conner', 'Charlebois', NULL),
+('03226178', 'Dmitry', 'Veber', NULL),
+('03236228', 'Nick', 'Hentschel', NULL),
+('03268457', 'Anantakumar', 'Krishnakumar', NULL),
+('03282702', 'Alican', 'Tanatmis', NULL),
+('03320567', 'Menghan', 'Zhang', NULL),
+('03352010', 'Vinay', 'Vijayan', NULL),
 ('12345678', 'Nick', 'Hentschel', NULL);
 
 -- --------------------------------------------------------
@@ -151,8 +231,18 @@ CREATE TABLE IF NOT EXISTS `tutor` (
 --
 
 INSERT INTO `tutor` (`tutorID`, `studentID`) VALUES
-('99990009', '03224844'),
-('99990002', '12345678');
+('kong_hai', '03168669'),
+('Cats<3', '03177203'),
+('kunald', '03196224'),
+(':)', '03199353'),
+('Rhyptic', '03205196'),
+('H3RM3Z', '03224844'),
+('BigChees', '03226178'),
+('M3RCURY', '03236228'),
+('Anu', '03268457'),
+('Alican', '03282702'),
+('Mavis', '03320567'),
+('VV', '03352010');
 
 -- --------------------------------------------------------
 
@@ -181,15 +271,7 @@ CREATE TABLE IF NOT EXISTS `tutor_ability` (
   PRIMARY KEY (`abilityID`),
   KEY `tutorID` (`tutorID`,`courseID`),
   KEY `courseID` (`courseID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `tutor_ability`
---
-
-INSERT INTO `tutor_ability` (`abilityID`, `tutorID`, `courseID`) VALUES
-(2, '99990002', 'IT 101'),
-(1, '99990009', 'IT 101');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -201,9 +283,10 @@ CREATE TABLE IF NOT EXISTS `visit` (
   `visitID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'internal',
   `roomID` varchar(8) NOT NULL COMMENT 'FK to ROOM',
   `studentID` varchar(8) NOT NULL COMMENT 'FK to STUDENT',
-  `classID` varchar(5) NOT NULL COMMENT 'FK to CLASS',
+  `classID` varchar(5) DEFAULT NULL COMMENT 'FK to CLASS',
   `timeIn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `timeOut` timestamp NULL DEFAULT NULL,
+  `needHelp` tinyint(1) NOT NULL COMMENT 'Did the student indicate that they need help?',
   PRIMARY KEY (`visitID`),
   KEY `roomID` (`roomID`,`studentID`,`classID`),
   KEY `studentID` (`studentID`),
