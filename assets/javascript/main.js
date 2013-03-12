@@ -14,45 +14,98 @@
 
 $(document).ready(function(){
 
-	function sendSubmission(id) {
-		if (!window.location.origin) window.location.origin = window.location.protocol+"//"+window.location.host;
-		$.ajax({
-			url:  window.location.origin + "/index.php/main/check_student",
-			type: 'POST',
-			context: document.body,
-			data:  {
-				"id": id
-			},
-			success: function(name) {
-				alert("Welcome " + name);
-			}
-		});
-	}
+	if (!window.location.origin) window.location.origin = window.location.protocol+"//"+window.location.host;
 
-	var input = "";
-	var reg   = new RegExp('^[0-9|;]+$');
+	$('#help').hide();
+	$('#course-select').hide();
+
+	var student = {
+		id: "",
+		name: "",
+		timeIn: new Date(),
+		course: null,
+		needHelp: false,
+		roomID: "SMI 234",
+		tmp: "",
+		addVisit: function() {
+			$.ajax({
+				url:  window.location.origin + "/index.php/main/add_student_visit",
+				type: 'POST',
+				data:  {
+					"roomID":    this.roomID,
+					"studentID": this.id,
+					"courseID":   this.course,
+					"timeIn":    this.timeIn,
+					"needHelp":  this.needHelp
+				},
+				success: function(msg) {
+					location.reload();
+				}
+			});
+		},
+		verifyStudent: function verifyStudent() {
+			$.ajax({
+				url:  window.location.origin + "/index.php/main/verify_student",
+				type: 'POST',
+				context: document.body,
+				data:  {
+					"id": this.id
+				},
+				success: function(name) {
+					if(name != "error") {
+						$('#wel-message').hide();
+						$('#help').show();
+						$('#help-wrapper h3').append('Do you want help today, ' + name + '?');
+						this.name = name;
+					} else {
+						alert('student does not exist');
+					}
+				}
+			});
+		}
+	};
 
 	$(document).keypress(function(e) {
+		var reg   = new RegExp('^[0-9|;]+$');
 		// not totally tested, works fine on chrome on my Linux box, not working on chrome on my mac
-		if(e.which == 8 && input.length > 0) {
-			input = input.substring(0, input.length - 1);
+		if(e.which == 8 && student.tmp.length > 0) {
+			student.tmp = student.tmp.substring(0, student.tmp.length - 1);
 			$('.stars span:last-child').remove();
 		}
 		if(reg.test(String.fromCharCode(e.which))) {
-			input += String.fromCharCode(e.which);
-			if(input.length == 8 && input.indexOf(';') === -1) {
+			student.tmp += String.fromCharCode(e.which);
+			if(student.tmp.length == 8 && student.tmp.indexOf(';') === -1) {
 				$('.stars').empty();
-				sendSubmission(input);
-				input = "";
-			} else if(input.length == 12) {
-				input = input.substring(2, input.length - 2);
+				student.id = student.tmp;
+				student.verifyStudent();
+				student.tmp = "";
+			} else if(student.tmp.length == 12) {
+				student.tmp = student.tmp.substring(2, student.tmp.length - 2);
 				$('.stars').empty();
-				sendSubmission(input);
-				input = "";
+				student.id = student.tmp;
+				student.verifyStudent();
+				student.tmp = "";
 			} else {
 				$('.stars').append('<span class="star">*</span>');
 			}
 		}
+	});
+
+	$('.button').click(function() {
+		student.needHelp = $(this).val();
+		console.log(student.needHelp);
+		if(student.needHelp == 'true') {
+			$('#help').hide();
+			$('#course-select').show();
+		} else {
+			student.addVisit();
+		}
+	});
+
+	$('.button2').click(function() {
+		student.course = $(this).val();
+		console.log(student.course);
+		student.addVisit();
 	});
 
 });

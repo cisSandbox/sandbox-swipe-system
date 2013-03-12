@@ -4,7 +4,7 @@ body {
 
 	.main-wrapper {
 		margin: 0 auto;
-		width: 65%;
+		width: 960px;
 	}
 
 		.sb-header {
@@ -13,9 +13,10 @@ body {
 
 			.sb-header img {
 				width: 65%;
+				margin: 0 auto;
 			}
 
-	.wel-message {
+	#wel-message {
 		text-align: center;
 	}
 
@@ -23,7 +24,7 @@ body {
 		position: absolute;
 		text-align: center;
 		z-index: 100;
-		width: 65%;
+		width: 960px;
 		margin: 25% 0 0 0;
 	}
 
@@ -33,3 +34,61 @@ body {
 		color: #FFF;
 		padding: 5px;
 	}
+
+	/* -------------------
+		Conner's Styles
+	--------------------- */
+	#help-wrapper, #course-wrapper{
+		width:960px;
+		margin:auto;
+	}
+
+	h3{
+		color:#333172;
+		text-align: center;
+	}
+
+	.button{
+		float:left;
+		background-color:#5972b4;
+		color:#fff;
+		text-decoration: none;
+		display:block;
+		width:426px;
+		margin:15px;
+		padding:75px 12px;
+		text-align:center;
+		border: 0;
+	}
+
+	.button2{
+		float:left;
+		background-color:#5972b4;
+		color:#fff;
+		text-decoration: none;
+		display:block;
+		width:120px;
+		margin:10px;
+		padding:25px 10px;
+		text-align:center;
+		border: 0;
+	}
+	.wrap{
+		margin:auto;
+	}
+	div{
+		display:block;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
