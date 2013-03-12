@@ -21,10 +21,17 @@ class Main extends CI_Controller {
 	}
 
 	public function add_student_visit() {
+
+		if($this->input->post('courseID') == "") {
+			$courseID = null;
+		} else {
+			$courseID = $this->input->post('courseID');
+		}
+
 		$data = array(
 			'roomID' => $this->input->post('roomID'), 
 			'studentID' => $this->input->post('studentID'),
-			'courseID' => $this->input->post('courseID'),
+			'courseID' => $courseID,
 			'timeIn' => $this->input->post('timeIn'),
 			'needHelp' => $this->input->post('needHelp')
 		);

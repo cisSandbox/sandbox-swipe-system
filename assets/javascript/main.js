@@ -23,7 +23,7 @@ $(document).ready(function(){
 		id: "",
 		name: "",
 		timeIn: new Date(),
-		course: null,
+		course: "",
 		needHelp: false,
 		roomID: "SMI 234",
 		tmp: "",
@@ -34,7 +34,7 @@ $(document).ready(function(){
 				data:  {
 					"roomID":    this.roomID,
 					"studentID": this.id,
-					"courseID":   this.course,
+					"courseID":  this.course,
 					"timeIn":    this.timeIn,
 					"needHelp":  this.needHelp
 				},
