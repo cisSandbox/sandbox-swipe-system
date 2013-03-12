@@ -87,6 +87,18 @@ body {
 		padding:0.5em 2em;
 	}
 
+	#list th{
+		background-color: #0099CC;
+	}
+
+	#list table{
+		background-color: #33b5e5;
+		color:#fff;
+		border-radius:3px !important;
+		box-shadow: 0px 1px 8px 5px #dde;
+		margin:auto;
+	}
+
 
 
 

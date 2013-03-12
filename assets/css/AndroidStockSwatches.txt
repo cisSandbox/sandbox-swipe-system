@@ -1,0 +1,26 @@
+--- // Lights \\ ---
+33B5E5			Blue
+AA66CC			Purple
+99CC00			Green
+FFBB33			Orange
+FF4444			Red
+--- // Darks \\ ---
+0099CC			Blue
+9933CC			Purple
+669900			Green
+FF8800			Orange
+CC0000			Red
+
+
+--- // Lights \\ ---
+ 51 181 229			Blue
+170 102 204			Purple
+153 204   0			Green
+255 187  51			Orange
+255  68  68			Red
+--- // Darks \\ ---
+  0 153 204			Blue
+153  51 204			Purple
+102 153   0			Green
+255 136   0			Orange
+204   0   0			Red
