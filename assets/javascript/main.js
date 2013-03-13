@@ -24,10 +24,11 @@ $(document).ready(function(){
 		name: "",
 		timeIn: new Date(),
 		course: "",
-		needHelp: false,
+		needHelp: 0,
 		roomID: "SMI 234",
 		tmp: "",
 		addVisit: function() {
+			alert(student.needHelp);
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/add_student_visit",
 				type: 'POST',
@@ -39,7 +40,6 @@ $(document).ready(function(){
 					"needHelp":  this.needHelp
 				},
 				success: function(msg) {
-					console.log(this.needHelp);
 					location.reload();
 				}
 			});
@@ -94,11 +94,10 @@ $(document).ready(function(){
 
 	$('.button').click(function() {
 		if($(this).val() == 'true') {
-			student.needHelp = true;
+			student.needHelp = 1;
 			$('#help').hide();
 			$('#course-select').show();
 		} else {
-			student.needHelp = false;
 			student.addVisit();
 		}
 	});
