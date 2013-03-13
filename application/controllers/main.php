@@ -32,7 +32,7 @@ class Main extends CI_Controller {
 			'roomID' => $this->input->post('roomID'), 
 			'studentID' => $this->input->post('studentID'),
 			'courseID' => $courseID,
-			'timeIn' => $this->input->post('timeIn'),
+			'timeIn' => date("Y-m-d H:i:s"),
 			'needHelp' => $this->input->post('needHelp')
 		);
 		$this->load->model('Visit_model');

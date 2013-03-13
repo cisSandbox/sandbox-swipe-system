@@ -22,13 +22,11 @@ $(document).ready(function(){
 	var student = {
 		id: "",
 		name: "",
-		timeIn: new Date(),
 		course: "",
 		needHelp: 0,
 		roomID: "SMI 234",
 		tmp: "",
 		addVisit: function() {
-			alert(student.needHelp);
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/add_student_visit",
 				type: 'POST',
@@ -36,7 +34,6 @@ $(document).ready(function(){
 					"roomID":    this.roomID,
 					"studentID": this.id,
 					"courseID":  this.course,
-					"timeIn":    this.timeIn,
 					"needHelp":  this.needHelp
 				},
 				success: function(msg) {
@@ -104,7 +101,6 @@ $(document).ready(function(){
 
 	$('.button2').click(function() {
 		student.course = $(this).val();
-		console.log(student.course);
 		student.addVisit();
 	});
 
