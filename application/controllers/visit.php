@@ -12,4 +12,13 @@ class Visit extends CI_Controller{
 		$this->template->load('default','visit_list', $data);
 	}
 
+	public function active() {
+		$data = array(
+			'title' => 'Who\'s here?'
+		);
+		$this->load->model('Visit_model');
+		$data['records'] = $this->Visit_model->get_active_visits();
+		$this->template->load('default','visit_list', $data);
+	}
+
 }
