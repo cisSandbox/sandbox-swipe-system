@@ -39,6 +39,7 @@ $(document).ready(function(){
 					"needHelp":  this.needHelp
 				},
 				success: function(msg) {
+					console.log(this.needHelp);
 					location.reload();
 				}
 			});
@@ -92,12 +93,12 @@ $(document).ready(function(){
 	});
 
 	$('.button').click(function() {
-		student.needHelp = $(this).val();
-		console.log(student.needHelp);
-		if(student.needHelp == 'true') {
+		if($(this).val() == 'true') {
+			student.needHelp = true;
 			$('#help').hide();
 			$('#course-select').show();
 		} else {
+			student.needHelp = false;
 			student.addVisit();
 		}
 	});
