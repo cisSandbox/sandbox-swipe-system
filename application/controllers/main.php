@@ -39,14 +39,4 @@ class Main extends CI_Controller {
 		$this->Visit_model->add_visit($data);
 	}
 
-	public function visit_list() {
-		$data = array(
-			'title' => 'Who\'s here?',
-		);
-		$sql = "SELECT firstName, lastName, courseID, timeIn FROM student s, visit v WHERE v.studentID = s.studentID";
-		$res = $this->db->query($sql);
-		$data['records'] = $res->result();
-		$this->template->load('default','visit_list', $data);
-	}
-
 }
