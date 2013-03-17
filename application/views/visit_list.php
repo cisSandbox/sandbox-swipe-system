@@ -1,4 +1,4 @@
-<div id="list">
+<div class="list">
 	<table>
 		<!-- header -->
 		<tr>

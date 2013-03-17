@@ -7,7 +7,7 @@ class Form extends CI_Controller{
 		$data = array(
 			'title' => 'Tutor Form'
 		);
-		$this->template->load('default', 'tutor_form', $data);
+		$this->template->load('responsive', 'tutor_form', $data);
 	}
 
 	public function submit(){
