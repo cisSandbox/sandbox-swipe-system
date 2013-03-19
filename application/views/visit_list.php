@@ -11,7 +11,7 @@
 		<?php foreach ($records as $v): ?> 
 		<!-- echo a row for each student -->
 		<tr>
-			<td>Tutor Form<!-- eventually, this will be a button for tutors to get to the tutor form. --></td>
+			<td><?php echo anchor('index.php/form/fill_out/' . $v->studentID . '/' . $v->courseID,'Tutor Form', 'class = "btn"'); ?></td>
 			<td><?php echo $v->firstName . " " . $v->lastName; ?></td>
 			<td><?php echo $v->courseID; ?></td>
 			<td><?php echo $v->timeIn; ?></td>

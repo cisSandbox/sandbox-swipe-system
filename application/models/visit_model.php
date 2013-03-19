@@ -18,8 +18,9 @@ class Visit_model extends CI_Model {
 	}
 
 	//[DONE] add logic to select only students who need help
+	//[edit] added studentId to select
 	function get_students_who_need_help(){
-		$query = $this->db->query("SELECT firstName, lastName, courseID, timeIn FROM student s, visit v WHERE v.studentID = s.studentID and v.needHelp = 1 and v.timeOut is null"); 
+		$query = $this->db->query("SELECT s.studentID, firstName, lastName, courseID, timeIn FROM student s, visit v WHERE v.studentID = s.studentID and v.needHelp = 1 and v.timeOut is null"); 
 		return $query->result();
 	}
 
