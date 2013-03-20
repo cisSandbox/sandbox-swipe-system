@@ -29,4 +29,9 @@ class Visit_model extends CI_Model {
 		return $query->result();	
 	}
 
+	function get_active_visit_for_student($id){
+		$query = $this->db->query("SELECT visitID FROM visit WHERE studentID = $id and timeOut is null");
+		return $query->result();
+	}
+
 }

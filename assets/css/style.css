@@ -49,6 +49,19 @@ body {
 		border-left:1em solid rgba(0, 153, 204,	0.5);
 		border-radius:3px;
 	}
+	.main-btn{
+		padding:0.5em 1em;
+		color:#fff;
+		background-color: #33B5E5;
+		text-decoration: none;
+		margin:0.2em auto;
+		display: block;
+		cursor: pointer;
+	}
+	.main-btn:active{
+		position:relative;
+		top:2px;
+	}
 	/* -------------------
 		Conner's Styles
 	--------------------- */
@@ -179,6 +192,21 @@ body {
 		.form-container input:hover, select:hover, textarea:hover{
 			border:1px solid #000;
 		}
+
+	.main-btn{
+		padding:0.5em 1em;
+		color:#fff;
+		background-color: #33B5E5;
+		text-decoration: none;
+		margin:0.2em auto;
+		display: block;
+		cursor: pointer;
+	}
+	.main-btn:active{
+		position:relative;
+		top:2px;
+	}
+
 	}
 
 

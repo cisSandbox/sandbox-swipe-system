@@ -21,4 +21,8 @@ class Visit extends CI_Controller{
 		$this->template->load('default','visit_list', $data);
 	}
 
+	public function remove_visit($vid){
+		
+	}
+
 }
