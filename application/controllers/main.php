@@ -39,4 +39,9 @@ class Main extends CI_Controller {
 		$this->Visit_model->add_visit($data);
 	}
 
+	public function get_courses() {
+		$this->load->model('Course_model');
+		echo json_encode($this->Course_model->get_all_courses());
+	}
+
 }

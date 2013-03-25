@@ -60,6 +60,20 @@ $(document).ready(function(){
 					}
 				}
 			});
+		},
+		getCourses: function getCouses() {
+			$.ajax({
+				url:  window.location.origin + "/index.php/main/get_courses",
+				type: 'POST',
+				dataType: 'json',
+				context: document.body,
+				success: function(courses) {
+					//console.log(courses[1].courseID);
+					for (var i = courses.length - 1; i >= 0; i--) {
+						$('#course-list').append('<input class="button2" type="button" value="'+ courses[i].courseID +'"/>');
+					}
+				}
+			});
 		}
 	};
 
@@ -93,13 +107,14 @@ $(document).ready(function(){
 		if($(this).val() == 'true') {
 			student.needHelp = 1;
 			$('#help').hide();
+			student.getCourses();
 			$('#course-select').show();
 		} else {
 			student.addVisit();
 		}
 	});
 
-	$('.button2').click(function() {
+	$('#course-list').on('click', '.button2', function() {
 		student.course = $(this).val();
 		student.addVisit();
 	});
