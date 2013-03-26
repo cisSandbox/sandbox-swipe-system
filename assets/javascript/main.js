@@ -56,7 +56,7 @@ $(document).ready(function(){
 						$('#help-wrapper h3').append('Do you want help today, ' + name + '?');
 						this.name = name;
 					} else {
-						alert('student does not exist');
+						alert('student does not exist or student is currently signed in');
 					}
 				}
 			});
