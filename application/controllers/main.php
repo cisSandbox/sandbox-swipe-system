@@ -12,7 +12,7 @@ class Main extends CI_Controller {
 	public function verify_student() {		
 		$id = $this->input->post('id');
 		$this->load->model('Student_model');
-		$student = $this->Student_model->get_student_by_id($id);
+		$student = $this->Student_model->get_filtered_student_by_id($id);
 		if($student) {
 			echo $student[0]->firstName . " " . $student[0]->lastName;
 		} else {
