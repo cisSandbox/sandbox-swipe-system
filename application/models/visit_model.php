@@ -34,4 +34,22 @@ class Visit_model extends CI_Model {
 		return $query->result();
 	}
 
+	function get_tutor_queue(){
+		$query = $this->db->query("SELECT firstName, lastName, s.studentID, courseID, timeIn FROM student s, visit v LEFT JOIN tutored_visit t on t.tutoredVisitID = v.visitID WHERE v.studentID = s.studentID and v.needHelp = 1 and v.timeOut is null and t.tutoredVisitID is null");
+		return $query->result();
+	}
+
+	function get_tapout_queue(){
+		$query = $this->db->query("SELECT firstName, lastName, s.studentID FROM student s, visit v WHERE v.studentID = s.studentID and v.timeOut is null");
+		return $query->result();
+	}
+
+	//$data = timeOut, studentID
+	function close_visit_for_student($data){
+		$query = $this->db->query("UPDATE visit SET timeOut = ? WHERE studentID = ? and timeOut is null", $data);
+
+
+	}
+
+
 }

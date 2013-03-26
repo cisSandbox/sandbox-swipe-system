@@ -108,33 +108,40 @@ body {
 	}
 
 	/* ----------
-		LIST STYLES
+		LIST STYLES RESPONSIVE
 		---------- */
-	.list td{
-		padding:0.5em 2em;
-	}
+		.list td{
+			padding:0.5em 2em;
+		}
+	
+		.list th{
+			background-color: #0099CC;
+		}
+		.list table{
+			background-color: #33b5e5;
+			color:#fff;
+			border-radius:3px !important;
+			box-shadow: 0px 1px 8px 5px #dde;
+			text-align: center;
+			width:90%;
+			margin:auto;
+		}
+		.list a.btn{
+			padding:0.2em 1em;
+			color:#0099CC;
+			background-color: #fff;
+			text-decoration: none;
+			margin:0.2em;
+			display: block;
+			border-radius: 5px;
+			box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.7);
+		}
 
-	.list th{
-		background-color: #0099CC;
-	}
 
-	.list table{
-		background-color: #33b5e5;
-		color:#fff;
-		border-radius:3px !important;
-		box-shadow: 0px 1px 8px 5px #dde;
-		margin:auto;
-	}
-
-	.list a.btn{
-		padding:0.2em 1em;
-		color:#0099CC;
-		background-color: #fff;
-		text-decoration: none;
-		margin:0.2em;
-		display: block;
-		border-radius: 5px;
-		box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.7);
+	@media only screen and (min-width: 768px){	
+		.list table{
+			width:700px;
+		}
 	}
 
 	/* ----------
@@ -163,6 +170,7 @@ body {
 		.form-container input:hover, select:hover, textarea:hover{
 			border:1px solid #000;
 		}
+
 	
 
 	@media only screen and (min-width: 768px){
