@@ -88,6 +88,19 @@ body {
 		border: 0;
 	}
 
+	.button3{
+		float:left;
+		background-color:#F44;
+		color:#fff;
+		text-decoration: none;
+		display:block;
+		width:426px;
+		margin:15px;
+		padding:75px 12px;
+		text-align:center;
+		border: 0;
+	}
+
 	.button2{
 		float:left;
 		background-color:#5972b4;

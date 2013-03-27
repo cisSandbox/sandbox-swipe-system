@@ -12,16 +12,10 @@ class Main extends CI_Controller {
 	public function verify_student() {		
 		$id = $this->input->post('id');
 		$this->load->model('Student_model');
-		$student = $this->Student_model->get_filtered_student_by_id($id);
-		if($student) {
-			echo $student[0]->firstName . " " . $student[0]->lastName;
-		} else {
-			echo "error";
-		}
+		echo json_encode($this->Student_model->get_filtered_student_by_id($id));
 	}
 
 	public function add_student_visit() {
-
 		if($this->input->post('courseID') == "") {
 			$courseID = null;
 		} else {
@@ -37,6 +31,12 @@ class Main extends CI_Controller {
 		);
 		$this->load->model('Visit_model');
 		$this->Visit_model->add_visit($data);
+	}
+
+	public function add_work_visit() {
+		$tutor_id = $this->input->post('tutorID');
+		$this->load->model('WorkVisit_model');
+		$this->WorkVisit_model->add_work_visit_by_id($tutor_id);
 	}
 
 	public function get_courses() {

@@ -8,6 +8,7 @@
 		<div id="button-wrapper">
 			<button class="button" type="button" value="true">Yes</button>
 			<button class="button" type="button" value="false">No</button>
+			<button class="button3" id="tutorbutton" type="button" value="tutor">I'm here to work</button>
 		</div>
 	</div>
 </div>

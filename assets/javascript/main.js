@@ -18,6 +18,7 @@ $(document).ready(function(){
 
 	$('#help').hide();
 	$('#course-select').hide();
+	$('#tutorbutton').hide();
 
 	var student = {
 		id: "",
@@ -26,10 +27,12 @@ $(document).ready(function(){
 		needHelp: 0,
 		roomID: "SMI 234",
 		tmp: "",
+		tutorID: "",
 		addVisit: function() {
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/add_student_visit",
 				type: 'POST',
+				context: document.body,
 				data:  {
 					"roomID":    this.roomID,
 					"studentID": this.id,
@@ -41,27 +44,47 @@ $(document).ready(function(){
 				}
 			});
 		},
-		verifyStudent: function verifyStudent() {
+		addWorkVisit: function() {
+			$.ajax({
+				url:  window.location.origin + "/index.php/main/add_work_visit",
+				type: 'POST',
+				context: document.body,
+				data:  {
+					"tutorID": this.tutorID
+				},
+				success: function(msg) {
+					location.reload();
+				}
+			});
+		},
+		verifyStudent: function() {
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/verify_student",
 				type: 'POST',
+				dataType: 'json',
 				context: document.body,
 				data:  {
 					"id": this.id
 				},
-				success: function(name) {
-					if(name != "error") {
+				success: function(person) {
+					if(person) {
+						student.name = person.query_result[0].firstName + ' ' + person.query_result[0].lastName;
 						$('#wel-message').hide();
 						$('#help').show();
-						$('#help-wrapper h3').append('Do you want help today, ' + name + '?');
-						this.name = name;
+						if(person.is_tutor) {
+							student.tutorID = person.is_tutor[0].tutorID;
+							$('#help-wrapper h3').append('Do you want help today, ' + student.name + '? Or, are you here to tutor?');
+							$('#tutorbutton').show();
+						} else {
+							$('#help-wrapper h3').append('Do you want help today, ' + student.name + '?');
+						}
 					} else {
 						alert('student does not exist or student is currently signed in');
 					}
 				}
 			});
 		},
-		getCourses: function getCouses() {
+		getCourses: function() {
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/get_courses",
 				type: 'POST',
@@ -112,6 +135,10 @@ $(document).ready(function(){
 		} else {
 			student.addVisit();
 		}
+	});
+
+	$('#tutorbutton').click(function() {
+		student.addWorkVisit();
 	});
 
 	$('#course-list').on('click', '.button2', function() {
