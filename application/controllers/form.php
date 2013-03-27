@@ -62,7 +62,7 @@ class Form extends CI_Controller{
 
 		// code to remove the student from the visit list
 
-		redirect('/index.php/visit/');
+		redirect('/index.php/visit/tutor_queue');
 	}
 
 

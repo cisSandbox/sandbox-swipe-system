@@ -9,7 +9,6 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>		
 	</head>
 	<body>
-		
 			<?php echo $body; ?>
 			<script type="text/javascript" src="/assets/javascript/main.js"></script>
 	</body>

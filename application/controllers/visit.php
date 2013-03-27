@@ -4,25 +4,36 @@
 class Visit extends CI_Controller{
 
 	public function index() {
-		$data = array(
-			'title' => 'Who\'s here?'
-		);
-		$this->load->model('Visit_model');
-		$data['records'] = $this->Visit_model->get_students_who_need_help();
-		$this->template->load('default','visit_list', $data);
+		$this->tapout_queue();
 	}
 
-	public function active() {
+	public function tutor_queue(){
 		$data = array(
-			'title' => 'Who\'s here?'
+			'title' => 'Waiting to be Tutored'
 		);
 		$this->load->model('Visit_model');
-		$data['records'] = $this->Visit_model->get_active_visits();
-		$this->template->load('default','visit_list', $data);
+		$data['records'] = $this->Visit_model->get_tutor_queue();
+		$this->template->load('responsive','tutor_queue', $data);
 	}
 
-	public function remove_visit($vid){
-		
+	public function tapout_queue(){
+		$data = array(
+			'title' => 'Tapout, yo!'
+		);
+		$this->load->model('Visit_model');
+		$data['records'] = $this->Visit_model->get_tapout_queue();
+		$this->template->load('responsive','tapout_queue', $data);
+	}
+
+	public function tapout($id){
+		$data = array(
+			'timeOut' => date("Y-m-d H:i:s"),
+			'studentID' => $id
+		);
+		$this->load->model('visit_model');
+		$this->visit_model->close_visit_for_student($data);
+
+		redirect('/index.php/visit/tapout_queue');
 	}
 
 }
