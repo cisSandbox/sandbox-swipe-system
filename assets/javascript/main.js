@@ -73,8 +73,16 @@ $(document).ready(function(){
 						$('#help').show();
 						if(person.is_tutor) {
 							student.tutorID = person.is_tutor[0].tutorID;
+							/* ----------
+								EDIT: CC 3/28/2013
+								--> show three evenly spaced buttons if the student is a tutor
+								---------- */
+							$('#button-wrapper button').attr('class','span-one-third cdcbtn cdcbig');
+							$('#tutorbutton').attr('class','span-on-third cdcbtn cdcbig cdcred');
+							/* --- /edit --- */
 							$('#help-wrapper h3').append('Do you want help today, ' + student.name + '? Or, are you here to tutor?');
 							$('#tutorbutton').show();
+
 						} else {
 							$('#help-wrapper h3').append('Do you want help today, ' + student.name + '?');
 						}
@@ -132,9 +140,9 @@ $(document).ready(function(){
 			$('#help').hide();
 			student.getCourses();
 			$('#course-select').show();
-		} else {
-			student.addVisit();
-		}
+		} else if ($(this).val() == 'false'){ 	// EDIT: CC 3/28/2013
+			student.addVisit();					// --> made (else if) so tutors don't get added 
+		}										// 		to tapout when they are here to work
 	});
 
 	$('#tutorbutton').click(function() {

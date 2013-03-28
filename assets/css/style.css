@@ -104,7 +104,6 @@ body {
 		EDIT: 3/28/2013
 		--> buttons are fluid
 		--> click animations
-		--> need to follow-up with NH re: red button
 		---------- */
 	#button-wrapper{
 		margin-left:-3%;
@@ -150,6 +149,12 @@ body {
 
 	.cdcred{
 		background-color:#FF4444;
+	}
+
+	.cdcred:active{
+		background-color:#CC0000 !important;
+		position:relative !important;
+		top:2px !important;	
 	}
 
 	
