@@ -6,9 +6,9 @@
 	<div id="help-wrapper">
 		<h3></h3>
 		<div id="button-wrapper">
-			<button class="button" type="button" value="true">Yes</button>
-			<button class="button" type="button" value="false">No</button>
-			<button class="button3" id="tutorbutton" type="button" value="tutor">I'm here to work</button>
+			<button class="span-one-half cdcbtn cdcbig" type="button" value="true">Yes</button>
+			<button class="span-one-half cdcbtn cdcbig" type="button" value="false">No</button>
+			<button class="span-one-third cdcbtn cdcbig cdcred" id="tutorbutton" type="button" value="tutor">I'm here to work</button>
 		</div>
 	</div>
 </div>

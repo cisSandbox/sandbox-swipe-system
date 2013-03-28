@@ -93,7 +93,7 @@ $(document).ready(function(){
 				success: function(courses) {
 					//console.log(courses[1].courseID);
 					for (var i = courses.length - 1; i >= 0; i--) {
-						$('#course-list').append('<input class="button2" type="button" value="'+ courses[i].courseID +'"/>');
+						$('#course-list').append('<input class="span-one-sixth cdcbtn cdcmed" type="button" value="'+ courses[i].courseID +'"/>');
 					}
 				}
 			});
@@ -126,7 +126,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.button').click(function() {
+	$('.cdcbig').click(function() {
 		if($(this).val() == 'true') {
 			student.needHelp = 1;
 			$('#help').hide();
@@ -141,7 +141,7 @@ $(document).ready(function(){
 		student.addWorkVisit();
 	});
 
-	$('#course-list').on('click', '.button2', function() {
+	$('#course-list').on('click', '.cdcmed', function() {
 		student.course = $(this).val();
 		student.addVisit();
 	});

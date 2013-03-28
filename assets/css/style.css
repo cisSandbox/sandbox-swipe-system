@@ -100,6 +100,62 @@ body {
 		text-align:center;
 		border: 0;
 	}
+	/* ----------
+		EDIT: 3/28/2013
+		--> buttons are fluid
+		--> click animations
+		--> need to follow-up with NH re: red button
+		---------- */
+	#button-wrapper{
+		margin-left:-3%;
+	}
+	[class*="span"] {
+		display: inline;
+		float: left;
+		margin-left: 3%;
+	} 
+	.span-one-third{
+		width: 30%;
+	}
+	.span-one-half{
+		width: 47%;
+	}
+	.span-one-sixth{
+		width: 13.66%;
+	}
+
+	.cdcbtn{
+		background-color:#33B5E5; /* 5972b4 */
+		color:#fff;
+		text-decoration: none;
+		display:block;
+		border:none;
+		height:3em;
+		padding:1em;
+		cursor: pointer;
+		margin-top:0.25em;
+		margin-bottom:0.25em;
+	}
+	.cdcbig{
+		font-size:30px;
+	}
+	.cdcmed{
+		font-size:20px;
+	}
+	.cdcbtn:active{
+		background-color:#0099CC;
+		position:relative;
+		top:2px;
+	}
+
+	.cdcred{
+		background-color:#FF4444;
+	}
+
+	
+
+
+	/* --- /edit --- */
 
 	.button2{
 		float:left;
