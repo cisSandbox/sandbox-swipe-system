@@ -1,0 +1,12 @@
+SWIPE APP
+TODO
+1.	Tutor Display
+	a.	Show picture and abilities of currently signed in tutors
+	b.	Tapout to sign out
+		i.	Confirmation to sign out
+2.	Password Protection
+	a.	Every page is password protected
+	b.	Depending on CAS
+3.	DA Console
+	a.	Adding classes, tutors, rooms
+	b.	Configuration

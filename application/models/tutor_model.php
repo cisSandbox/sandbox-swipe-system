@@ -12,4 +12,9 @@ class Tutor_model extends CI_Model {
 		return $query->result();
 	}
 
+	function get_tutor_image_path_by_tutor($id){
+		$query = $this->db->query("SELECT imgPath FROM tutor WHERE tutorID = $id");
+		return $query->result();
+	}
+
 }

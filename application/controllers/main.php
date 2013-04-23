@@ -44,4 +44,11 @@ class Main extends CI_Controller {
 		echo json_encode($this->Course_model->get_all_courses());
 	}
 
+	public function get_tutors_on_duty(){
+		$this->load->model('WorkVisit_model');
+		echo json_encode($this->WorkVisit_model->get_tutors_on_duty());
+
+		
+	}
+
 }

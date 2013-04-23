@@ -47,8 +47,6 @@ class Visit_model extends CI_Model {
 	//$data = timeOut, studentID
 	function close_visit_for_student($data){
 		$query = $this->db->query("UPDATE visit SET timeOut = ? WHERE studentID = ? and timeOut is null", $data);
-
-
 	}
 
 

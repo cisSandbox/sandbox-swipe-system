@@ -1,13 +1,15 @@
 <div class="list">
 	<table>
 		<!-- header -->
+	<thead>
 		<tr>
 			<th>Tutor Form</th>
 			<th>Student</th>
 			<th>Class</th>
 			<th>Arrival</th>
 		</tr>
-
+	</thead>
+	<tbody id="students">
 		<?php foreach ($records as $v): ?> 
 		<!-- echo a row for each student -->
 		<tr>
@@ -18,5 +20,9 @@
 		</tr>
 	
 		<?php endforeach; ?>
+	</tbody>
 	</table>
 </div>
+<script type="text/javascript">
+
+</script>

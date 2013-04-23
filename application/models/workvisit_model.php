@@ -13,4 +13,17 @@ class WorkVisit_model extends CI_Model {
 
 		$this->db->insert('work_visit', $data);
 	}
+
+	function get_all(){
+		$query = $this->db->get('work_visit');
+		return $query->result();
+	}
+
+	function get_tutor_abilities_by_tutor($id){
+		$query = $this->db->query("SELECT courseID FROM tutor_ability WHERE tutorID = $id");
+		return $query->result();
+	}
+
+	
+
 }
