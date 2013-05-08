@@ -75,7 +75,7 @@ body {
 		text-align: center;
 	}
 
-	.button{
+/*	.button{
 		float:left;
 		background-color:#5972b4;
 		color:#fff;
@@ -86,9 +86,9 @@ body {
 		padding:75px 12px;
 		text-align:center;
 		border: 0;
-	}
+	}*/
 
-	.button3{
+	/*.button3{
 		float:left;
 		background-color:#F44;
 		color:#fff;
@@ -105,7 +105,7 @@ body {
 		--> buttons are fluid
 		--> click animations
 		---------- */
-	#button-wrapper{
+	/*#button-wrapper{
 		margin-left:-3%;
 	}
 	[class*="span"] {
@@ -124,7 +124,7 @@ body {
 	}
 
 	.cdcbtn{
-		background-color:#33B5E5; /* 5972b4 */
+		background-color:#33B5E5; // 5972b4 
 		color:#fff;
 		text-decoration: none;
 		display:block;
@@ -156,13 +156,13 @@ body {
 		position:relative !important;
 		top:2px !important;	
 	}
-
+*/
 	
 	
 
 	/* --- /edit --- */
 
-	.button2{
+/*	.button2{
 		float:left;
 		background-color:#5972b4;
 		color:#fff;
@@ -179,28 +179,28 @@ body {
 	}
 	div{
 		display:block;
-	}
+	}*/
 
 	/* ----------
 		LIST STYLES RESPONSIVE
 		---------- */
-		.list td{
-			padding:0.5em 2em;
+		.list{
+			width:700px;
+			margin:auto;
 		}
-	
-		.list th{
-			background-color: #0099CC;
+		.list td{
+			padding:0.5em;
 		}
 		.list table{
-			background-color: #33b5e5;
+/*			background-color: #33b5e5;
 			color:#fff;
 			border-radius:3px !important;
-			box-shadow: 0px 1px 8px 5px #dde;
+			box-shadow: 0px 1px 8px 5px #dde;*/
 			text-align: center;
 			width:90%;
 			margin:auto;
 		}
-		.list a.btn{
+		/*.list a.btn{
 			padding:0.2em 1em;
 			color:#0099CC;
 			background-color: #fff;
@@ -209,7 +209,7 @@ body {
 			display: block;
 			border-radius: 5px;
 			box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.7);
-		}
+		}*/
 
 
 	@media only screen and (min-width: 768px){	
@@ -232,7 +232,7 @@ body {
 		.form-container h6{
 			margin:1em auto 0 auto;
 		}
-		.form-container input, select, textarea{
+	/*	.form-container input, select, textarea{
 			width:90%;
 			margin:auto;
 			border:1px solid #777;
@@ -240,7 +240,7 @@ body {
 		}
 		.form-container select{
 			padding:0.6em 1em;
-		}
+		}*/
 		.form-container input:hover, select:hover, textarea:hover{
 			border:1px solid #000;
 		}
@@ -256,39 +256,6 @@ body {
 		box-shadow: 0px 1px 8px 5px #dde;
 		padding:2em;
 	}
-		.form-container h1{
-			font-size: 30px;
-		}
-		.form-container h6{
-			margin:1em auto 0 auto;
-		}
-		.form-container input, textarea{
-			width:320px;
-			border:1px solid #777;
-			padding:6px 12px;
-		}
-		.form-container select{
-			 width:344px;
-			 padding:6px 12px;
-		}
-		.form-container input:hover, select:hover, textarea:hover{
-			border:1px solid #000;
-		}
-
-	.main-btn{
-		padding:0.5em 1em;
-		color:#fff;
-		background-color: #33B5E5;
-		text-decoration: none;
-		margin:0.2em auto;
-		display: block;
-		cursor: pointer;
-	}
-	.main-btn:active{
-		position:relative;
-		top:2px;
-	}
-
 	}
 
 

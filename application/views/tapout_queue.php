@@ -1,5 +1,5 @@
 <div class="list">
-	<table>
+	<table class="table-striped">
 		<!-- header -->
 		<tr>
 			<th>Tapout</th>
@@ -9,7 +9,7 @@
 		<?php foreach ($records as $v): ?> 
 		<!-- echo a row for each student -->
 		<tr>
-			<td><?php echo anchor('index.php/visit/tapout/' . $v->studentID, 'Tapout', 'class = "btn"'); ?></td>
+			<td><?php echo anchor('index.php/visit/tapout/' . $v->studentID, 'Tapout', 'class = "btn btn-danger"'); ?></td>
 			<td><?php echo $v->firstName . " " . $v->lastName; ?></td>
 		</tr>
 	

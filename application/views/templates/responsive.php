@@ -5,7 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title><?php echo $title; ?></title>
 		<link rel="stylesheet" type="text/css" href="/assets/css/reset.css">
-		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">		
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap/css/bootstrap.css">	
+		<link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap/css/bootstrap-responsive.css">	
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>		
 	</head>
 	<body>

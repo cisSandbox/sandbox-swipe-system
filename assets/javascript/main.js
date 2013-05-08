@@ -76,9 +76,11 @@ $(document).ready(function(){
 							/* ----------
 								EDIT: CC 3/28/2013
 								--> show three evenly spaced buttons if the student is a tutor
+								EDIT: CC 5/8/2013
+								--> bootstrap
 								---------- */
-							$('#button-wrapper button').attr('class','span-one-third cdcbtn cdcbig');
-							$('#tutorbutton').attr('class','span-on-third cdcbtn cdcbig cdcred');
+							$('.row-fluid button').attr('class','span4 btn btn-large btn-primary');
+							$('#tutorbutton').attr('class','span4 btn btn-large btn-danger');
 							/* --- /edit --- */
 							$('#help-wrapper h3').append('Do you want help today, ' + student.name + '? Or, are you here to tutor?');
 							$('#tutorbutton').show();
@@ -100,8 +102,13 @@ $(document).ready(function(){
 				context: document.body,
 				success: function(courses) {
 					//console.log(courses[1].courseID);
-					for (var i = courses.length - 1; i >= 0; i--) {
-						$('#course-list').append('<input class="span-one-sixth cdcbtn cdcmed" type="button" value="'+ courses[i].courseID +'"/>');
+					for (var i = courses.length-1; i >= 0; i--) {
+						/* ---------- 
+						EDIT: CC5/8/2013
+						--> added row-fluid for each row of six buttons
+						---------- */
+						$('#course-list').append('<button class="span2 btn btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>');
+						/* --- /edit --- */
 					}
 				}
 			});
@@ -134,7 +141,7 @@ $(document).ready(function(){
 		}
 	});
 
-	$('.cdcbig').click(function() {
+	$('#swipe-in button').click(function() {
 		if($(this).val() == 'true') {
 			student.needHelp = 1;
 			$('#help').hide();
@@ -149,7 +156,7 @@ $(document).ready(function(){
 		student.addWorkVisit();
 	});
 
-	$('#course-list').on('click', '.cdcmed', function() {
+	$('#course-list').on('click', '.span2', function() {
 		student.course = $(this).val();
 		student.addVisit();
 	});

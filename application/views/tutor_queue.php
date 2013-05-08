@@ -1,5 +1,5 @@
 <div class="list">
-	<table>
+	<table class="table-striped">
 		<!-- header -->
 	<thead>
 		<tr>
@@ -13,7 +13,7 @@
 		<?php foreach ($records as $v): ?> 
 		<!-- echo a row for each student -->
 		<tr>
-			<td><?php echo anchor('index.php/form/fill_out/' . $v->studentID . '/' . $v->courseID,'Tutor Form', 'class = "btn"'); ?></td>
+			<td><?php echo anchor('index.php/form/fill_out/' . $v->studentID . '/' . $v->courseID,'Tutor Form', 'class = "btn btn-primary"'); ?></td>
 			<td><?php echo $v->firstName . " " . $v->lastName; ?></td>
 			<td><?php echo $v->courseID; ?></td>
 			<td><?php echo $v->timeIn; ?></td>
