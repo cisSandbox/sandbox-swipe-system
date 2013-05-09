@@ -102,14 +102,28 @@ $(document).ready(function(){
 				context: document.body,
 				success: function(courses) {
 					//console.log(courses[1].courseID);
-					for (var i = courses.length-1; i >= 0; i--) {
+					var content = '';
+					for (var i = 0; i < courses.length; i++) {
 						/* ---------- 
 						EDIT: CC5/8/2013
 						--> added row-fluid for each row of six buttons
 						---------- */
-						$('#course-list').append('<button class="span2 btn btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>');
+
+						if(i === 0) {
+							content += '<div class="row"><button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
+						} else if(i % 9 === 0) {
+							content += '</div><div class="row"><button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
+						} else if(i === courses.length-1) {
+							content += '</div>';
+						} else {
+							content += '<button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
+						}
+
+
+						//<button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>
 						/* --- /edit --- */
 					}
+					$('#course-list').append(content);
 				}
 			});
 		}
@@ -147,9 +161,9 @@ $(document).ready(function(){
 			$('#help').hide();
 			student.getCourses();
 			$('#course-select').show();
-		} else if ($(this).val() == 'false'){ 	// EDIT: CC 3/28/2013
+		} else if ($(this).val() == 'false'){	// EDIT: CC 3/28/2013
 			student.addVisit();					// --> made (else if) so tutors don't get added 
-		}										// 		to tapout when they are here to work
+		}										// to tapout when they are here to work
 	});
 
 	$('#tutorbutton').click(function() {
