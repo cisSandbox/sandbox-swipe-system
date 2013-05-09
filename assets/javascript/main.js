@@ -107,21 +107,21 @@ $(document).ready(function(){
 						/* ---------- 
 						EDIT: CC5/8/2013
 						--> added row-fluid for each row of six buttons
+
+						EDIT: NH 5/9/2013
+						--> fixed row display for buttons with twitter bootstrap
 						---------- */
 
 						if(i === 0) {
-							content += '<div class="row"><button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
-						} else if(i % 9 === 0) {
-							content += '</div><div class="row"><button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
+							content += '<div class="row row-mod"><button class="span2 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
+						} else if(i % 6 === 0) {
+							content += '</div><div class="row row-mod"><button class="span2 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
 						} else if(i === courses.length-1) {
 							content += '</div>';
 						} else {
-							content += '<button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
+							content += '<button class="span2 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>';
 						}
 
-
-						//<button class="span1 btn-large btn-info" type="button" value="'+courses[i].courseID+'">'+ courses[i].courseID +'</button>
-						/* --- /edit --- */
 					}
 					$('#course-list').append(content);
 				}
@@ -131,7 +131,6 @@ $(document).ready(function(){
 
 	$(document).keypress(function(e) {
 		var reg   = new RegExp('^[0-9|;]+$');
-		// not totally tested, works fine on chrome on my Linux box, not working on chrome on my mac
 		if(e.which == 8 && student.tmp.length > 0) {
 			student.tmp = student.tmp.substring(0, student.tmp.length - 1);
 			$('.stars span:last-child').remove();
