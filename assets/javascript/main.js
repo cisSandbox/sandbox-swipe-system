@@ -79,7 +79,7 @@ $(document).ready(function(){
 								EDIT: CC 5/8/2013
 								--> bootstrap
 								---------- */
-							$('.row-fluid button').attr('class','span4 btn btn-large btn-primary');
+							$('.row button').attr('class','span4 btn btn-large btn-primary');
 							$('#tutorbutton').attr('class','span4 btn btn-large btn-danger');
 							/* --- /edit --- */
 							$('#help-wrapper h3').append('Do you want help today, ' + student.name + '? Or, are you here to tutor?');

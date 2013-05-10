@@ -13,7 +13,7 @@ class Visit extends CI_Controller{
 		);
 		$this->load->model('Visit_model');
 		$data['records'] = $this->Visit_model->get_tutor_queue();
-		$this->template->load('responsive','tutor_queue', $data);
+		$this->template->load('default','tutor_queue', $data);
 	}
 
 	public function tapout_queue(){
@@ -22,7 +22,7 @@ class Visit extends CI_Controller{
 		);
 		$this->load->model('Visit_model');
 		$data['records'] = $this->Visit_model->get_tapout_queue();
-		$this->template->load('responsive','tapout_queue', $data);
+		$this->template->load('default','tapout_queue', $data);
 	}
 
 	public function tapout($id){

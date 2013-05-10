@@ -11,7 +11,7 @@ class Form extends CI_Controller{
 			'student_name' => null,
 			'tutors' => null
 		);
-		$this->template->load('responsive', 'tutor_form', $data);
+		$this->template->load('default', 'tutor_form', $data);
 	}
 
 	public function fill_out($var1 = 0, $var2 = ''){
@@ -27,7 +27,7 @@ class Form extends CI_Controller{
 		//add the tutor array here, and add the blocks
 		$data['tutors'] = $this->tutor_model->get_tutor_names();
 		$data['blocks'] = $this->block_model->get_blocks_by_course($var2, 's2013');
-		$this->template->load('responsive', 'tutor_form', $data);
+		$this->template->load('default', 'tutor_form', $data);
 	}
 
 	public function submit(){
