@@ -67,7 +67,7 @@ $(document).ready(function(){
 					for (var i = 0; i < tutors.length; i++) {
 						var abilities_string = '';
 						for (var j = 0; j < tutors[i].abilities.length; j++) {
-							abilities_string += '<span class="label label-info">'+ tutors[i].abilities[j] +'</span>';
+							abilities_string += '<span class="label label-info">'+ tutors[i].abilities[j] +'</span> ';
 						}
 						/*jshint multistr: true */
 						var content = '<div class="tutor card span4"> \
