@@ -30,6 +30,67 @@
 		margin: 20px 0;
 	}
 
+	/* --- 
+		CARDS
+			--- */
+.card{
+	border:1px solid #888;
+	border-radius:3px;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+	position:relative;
+	background:#fff;
+	margin-bottom:2em;
+}
+
+.card:before,
+.card:after {
+	content: '';
+	z-index: -2;
+	position: absolute;
+	left: 10px;
+	bottom: 12px;
+	width: 70%;
+	max-width: 300px; /*avoid rotation causing ugly appearance at large container widths*/
+	max-height: 100px; 
+	height: 55%;
+	-webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-webkit-transform: skew(-15deg) rotate(-6deg);
+	-moz-transform: skew(-15deg) rotate(-6deg);
+	-ms-transform: skew(-15deg) rotate(-6deg);
+	-o-transform: skew(-15deg) rotate(-6deg);
+	transform: skew(-15deg) rotate(-6deg); 
+}
+.card:after {
+	left: auto;
+	right: 10px;
+	-webkit-transform: skew(15deg) rotate(6deg);
+	-moz-transform: skew(15deg) rotate(6deg);
+	-ms-transform: skew(15deg) rotate(6deg);
+	-o-transform: skew(15deg) rotate(6deg);
+	transform: skew(15deg) rotate(6deg); 
+}
+.tutorPicture{
+	width:100%;
+}
+.tutorName{
+	position:absolute;
+	bottom:0px;
+	background:rgba(255,255,255,0.7);
+	display: block;
+	width:100%;
+}
+.tutorName h2{
+	padding:.1em 0em 0em .4em;
+	margin:0;
+}
+.spacer{
+	margin:0 1em .5em 1em;
+}
+
 	/* --------------------
 		GLOBAL STYLES
 		--------------------*/

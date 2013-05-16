@@ -24,6 +24,23 @@ class WorkVisit_model extends CI_Model {
 		return $query->result();
 	}
 
+
+
+
+
+	/* --- FEEL FREE TO DISREGARD THE STUFF BELOW --- 
+	//Called when a tutor signs out, updates the record in work_visit by adding a timeOut
+	function sign_out_by_id($id){
+		$dt = date("Y-m-d H:i:s");
+		$data = array(
+			'timeOut' => $dt
+		);
+		$this->db->where('tutorID',$id);
+		$this->db->update('work_visit',$data);
+	}
+	--- --- */
+
+
 	
 
 }
