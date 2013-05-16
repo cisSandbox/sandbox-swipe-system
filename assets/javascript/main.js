@@ -72,7 +72,7 @@ $(document).ready(function(){
 						/*jshint multistr: true */
 						var content = '<div class="tutor card span4"> \
 										<div class="tutorPicture"> \
-											<img src="'+ tutors[i].image +'"/> \
+											<img src="/assets/images/tutor_photos/'+ tutors[i].image +'"/> \
 										</div> \
 										<div class="tutorName"> \
 											<h2>'+ tutors[i].firstName +'</h2> \
