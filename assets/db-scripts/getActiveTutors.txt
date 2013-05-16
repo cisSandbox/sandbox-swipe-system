@@ -1,0 +1,20 @@
+SELECT s.firstName, ta.courseID, t.imgPath
+FROM tutor t, tutor_ability ta, student s
+WHERE t.tutorID = ta.tutorID and
+	t.studentID = s.studentID and
+        t.tutorID in (	SELECT tutorID
+        				FROM work_visit
+                        WHERE endTime is null);
+
+This script returns a recordset like the following:
+
+Name 	Class 	imgPath
+Conner	CS150	NULL
+Conner	CS180	NULL
+Conner 	CS213	NULL
+Nick 	CS150	NULL
+...
+
+I don't know of a better way to do this from SQL, as the result will always be a grid (with duplicate values), so they'll have to be parsed in JS..
+
+

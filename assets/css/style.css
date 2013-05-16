@@ -240,7 +240,7 @@
 		LIST STYLES RESPONSIVE
 		---------- */
 		.list{
-			width:700px;
+			width:100%;
 			margin:auto;
 		}
 		.list td{
