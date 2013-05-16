@@ -64,6 +64,7 @@ $(document).ready(function(){
 				dataType: 'json',
 				context: document.body,
 				success: function(tutors) {
+					$('#tutors').empty();
 					for (var i = 0; i < tutors.length; i++) {
 						var abilities_string = '';
 						for (var j = 0; j < tutors[i].abilities.length; j++) {
@@ -80,9 +81,9 @@ $(document).ready(function(){
 												'+ abilities_string +' \
 											</div> \
 										</div> \
+										<input type="hidden" value="'+ tutors[i].workID +'" /> \
 									</div>';
 						$('#tutors').append(content);
-						console.log(tutors[i]);
 					}
 					//alert('tutors, yo');
 				}
@@ -157,6 +158,20 @@ $(document).ready(function(){
 					$('#course-list').append(content);
 				}
 			});
+		},
+		tutorSignout: function(workID) {
+			var that = this;
+			$.ajax({
+				url:  window.location.origin + "/index.php/main/tutor_signout",
+				type: 'POST',
+				dataType: 'json',
+				data:  {
+					"work_id": workID
+				},
+				success: function() {
+					that.updateTutors();
+				}
+			});
 		}
 	};
 
@@ -206,6 +221,11 @@ $(document).ready(function(){
 	$('#course-list').on('click', '.span2', function() {
 		student.course = $(this).val();
 		student.addVisit();
+	});
+
+	$('#tutors').on('click', '.tutor', function() {
+		var workID = $(this).find('input').val();
+		student.tutorSignout(workID);
 	});
 
 });

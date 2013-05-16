@@ -49,4 +49,11 @@ class Main extends CI_Controller {
 		echo json_encode($this->Tutor_model->get_active_tutors());
 	}	
 
+	public function tutor_signout() {
+		$work_id = $this->input->post('work_id');
+		$this->load->model('Tutor_model');
+		$this->Tutor_model->tutor_signout($work_id);
+		echo "1";
+	}
+
 }

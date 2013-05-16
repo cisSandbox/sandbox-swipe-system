@@ -21,7 +21,7 @@ class Tutor_model extends CI_Model {
 	}
 
 	function get_active_tutors() {
-		$sql = "SELECT student.firstName, tutor_ability.courseID, tutor.imgPath
+		$sql = "SELECT student.firstName, tutor_ability.courseID, tutor.imgPath, work_visit.workID
 				FROM tutor
 				INNER JOIN tutor_ability ON tutor.tutorID = tutor_ability.tutorID
 				INNER JOIN student ON student.studentID = tutor.studentID
@@ -39,7 +39,8 @@ class Tutor_model extends CI_Model {
 				$items = array(
 					"firstName" => $key->firstName,
 					"abilities" => array($key->courseID),
-					"image"     => $key->imgPath
+					"image"     => $key->imgPath,
+					"workID"    => $key->workID
 				);
 				array_push($final_results, $items);
 				$name = $key->firstName;
@@ -47,6 +48,13 @@ class Tutor_model extends CI_Model {
 			}		
 		}
 		return $final_results;
+	}
+
+	function tutor_signout($work_id) {
+		$sql = "UPDATE work_visit
+				SET endTime = NOW()
+				WHERE workID = " . $this->db->escape($work_id);
+		$query = $this->db->query($sql);
 	}
 
 }
