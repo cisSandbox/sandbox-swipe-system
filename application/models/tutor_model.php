@@ -17,9 +17,11 @@ class Tutor_model extends CI_Model {
 		return $query->result();
 	}
 
-	function get_active_tutors($tutor_id) {
-		$sql = 'SELECT s\.firstName, ta\.courseID, t\.imgPath FROM tutor t, tutor_ability ta, student s WHERE t\.tutorID = ta\.tutorID and t\.studentID = s\.studentID and t\.tutorID = ' . $this->db->escape($tutor_id);
+	function get_active_tutors($tutor_id ) {
+		$sql = "SELECT s.firstName, ta.courseID, t.imgPath FROM tutor t, tutor_ability ta, student s WHERE t.tutorID = ta.tutorID AND t.studentID = s.studentID AND s.studentID = " . $this->db->escape($tutor_id);
+		//echo $sql; die();
 		$query = $this->db->query($sql);
+		//print_r($query->result()); die();
 		return $query->result();
 	}
 
