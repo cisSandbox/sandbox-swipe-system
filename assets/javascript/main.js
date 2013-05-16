@@ -57,6 +57,37 @@ $(document).ready(function(){
 				}
 			});
 		},
+		updateTutors: function() {
+			$.ajax({
+				url:  window.location.origin + "/index.php/main/get_tutors_on_duty",
+				type: 'POST',
+				dataType: 'json',
+				context: document.body,
+				success: function(tutors) {
+					for (var i = 0; i < tutors.length; i++) {
+						var abilities_string = '';
+						for (var j = 0; j < tutors[i].abilities.length; j++) {
+							abilities_string += '<span class="label label-info">'+ tutors[i].abilities[j] +'</span>';
+						}
+						/*jshint multistr: true */
+						var content = '<div class="tutor card span4"> \
+										<div class="tutorPicture"> \
+											<img src="'+ tutors[i].image +'"/> \
+										</div> \
+										<div class="tutorName"> \
+											<h2>'+ tutors[i].firstName +'</h2> \
+											<div class="spacer"> \
+												'+ abilities_string +' \
+											</div> \
+										</div> \
+									</div>';
+						$('#tutors').append(content);
+						console.log(tutors[i]);
+					}
+					//alert('tutors, yo');
+				}
+			});
+		},
 		verifyStudent: function() {
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/verify_student",
@@ -128,6 +159,9 @@ $(document).ready(function(){
 			});
 		}
 	};
+
+	// called on page load to pull in tutors
+	student.updateTutors();
 
 	$(document).keypress(function(e) {
 		var reg   = new RegExp('^[0-9|;]+$');

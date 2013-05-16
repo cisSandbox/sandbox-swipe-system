@@ -1,5 +1,8 @@
 <?php 
 
+ini_set('display_errors',1); 
+error_reporting(E_ALL);
+
 class Tutor_model extends CI_Model {
 
 	function get_tutors() {
@@ -17,12 +20,33 @@ class Tutor_model extends CI_Model {
 		return $query->result();
 	}
 
-	function get_active_tutors($tutor_id ) {
-		$sql = "SELECT s.firstName, ta.courseID, t.imgPath FROM tutor t, tutor_ability ta, student s WHERE t.tutorID = ta.tutorID AND t.studentID = s.studentID AND s.studentID = " . $this->db->escape($tutor_id);
-		//echo $sql; die();
-		$query = $this->db->query($sql);
-		//print_r($query->result()); die();
-		return $query->result();
+	function get_active_tutors() {
+		$sql = "SELECT student.firstName, tutor_ability.courseID, tutor.imgPath
+				FROM tutor
+				INNER JOIN tutor_ability ON tutor.tutorID = tutor_ability.tutorID
+				INNER JOIN student ON student.studentID = tutor.studentID
+				INNER JOIN work_visit ON work_visit.tutorID = tutor.tutorID
+				WHERE UNIX_TIMESTAMP(work_visit.endTime) = 0";
+		$results = $this->db->query($sql)->result();
+
+		$name = '';
+		$final_results = array();
+		$result_no = -1;
+		foreach ($results as $key) {
+			if($name == $key->firstName) {
+				array_push($final_results[$result_no]['abilities'], $key->courseID);
+			} else {
+				$items = array(
+					"firstName" => $key->firstName,
+					"abilities" => array($key->courseID),
+					"image"     => $key->imgPath
+				);
+				array_push($final_results, $items);
+				$name = $key->firstName;
+				$result_no++;
+			}		
+		}
+		return $final_results;
 	}
 
 }
