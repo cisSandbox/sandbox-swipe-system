@@ -2,7 +2,14 @@
 
 class Main extends CI_Controller {
 
-	public function index() {
+	public function index(){
+		$data = array(
+			'title' => 'Welcome' 
+		);
+		$this->template->load('default', 'fork', $data);
+	}
+	
+	public function swipe() {
 		$data = array(
 			'title' => 'Swipe it, yo' 
 		);
@@ -55,5 +62,7 @@ class Main extends CI_Controller {
 		$this->Tutor_model->tutor_signout($work_id);
 		echo "1";
 	}
+
+	
 
 }
