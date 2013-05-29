@@ -9,7 +9,9 @@
 		<?php foreach ($records as $v): ?> 
 		<!-- echo a row for each student -->
 		<tr>
-			<td><?php echo anchor('index.php/visit/tapout/' . $v->studentID, "I'm gone", 'class = "btn btn-danger grow"'); ?></td>
+			<!-- cdc edit 05/28/2013 -->
+			<td><?php echo anchor('index.php/visit/tapout/' . $v->studentHash, "I'm gone", 'class = "btn btn-danger grow"'); ?></td>
+			<!-- /edit -->
 			<td><?php echo $v->firstName . " " . $v->lastName; ?></td>
 		</tr>
 	

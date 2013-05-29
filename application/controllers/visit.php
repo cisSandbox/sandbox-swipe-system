@@ -25,10 +25,12 @@ class Visit extends CI_Controller{
 		$this->template->load('default','tapout_queue', $data);
 	}
 
-	public function tapout($id){
+	/*--cdc edit 05/28/2013--*/
+	public function tapout($idHash){	
 		$data = array(
 			'timeOut' => date("Y-m-d H:i:s"),
-			'studentID' => $id
+			'studentHash' => $idHash
+			/*-- /cdc --*/
 		);
 		$this->load->model('visit_model');
 		$this->visit_model->close_visit_for_student($data);

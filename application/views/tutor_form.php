@@ -4,7 +4,9 @@
 <form action="/index.php/form/submit" method="post">
 <h1>The Tutor Form</h1>
 <h6>Student</h6>
-	<input class="span2" name="studentID" type="text" value="<?php if ($student) echo $student ?>"> 
+	<!-- cdc edit 05/28/2013 -->
+	<input class="span2" name="studentHash" type="text" value="<?php if ($student) echo $student ?>"> 
+	<!-- /cdc -->
 	<span class="help-inline">
 		<?php if($student_name): ?>
 			<label class="label label-info">

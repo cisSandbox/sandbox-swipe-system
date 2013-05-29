@@ -16,10 +16,13 @@ class Main extends CI_Controller {
 		$this->template->load('default', 'main', $data);
 	}
 
-	public function verify_student() {		
+	public function verify_student() {
+		/* -- cdc edit 05/28/2013	-- */		
 		$id = $this->input->post('id');
+		$idHash = sha1($id);
 		$this->load->model('Student_model');
-		echo json_encode($this->Student_model->get_filtered_student_by_id($id));
+		echo json_encode($this->Student_model->get_filtered_student_by_id($idHash));
+		/* -- /cdc -- */
 	}
 
 	public function add_student_visit() {
@@ -29,12 +32,16 @@ class Main extends CI_Controller {
 			$courseID = $this->input->post('courseID');
 		}
 
+		// cdc edit 5/28/2013 SHA1
+		$id = $this->input->post('studentID');
 		$data = array(
 			'roomID' => $this->input->post('roomID'), 
-			'studentID' => $this->input->post('studentID'),
+			'studentID' => null,
 			'courseID' => $courseID,
 			'timeIn' => date("Y-m-d H:i:s"),
-			'needHelp' => $this->input->post('needHelp')
+			'needHelp' => $this->input->post('needHelp'),
+			'studentHash' => sha1($id)
+			// end edit
 		);
 		$this->load->model('Visit_model');
 		$this->Visit_model->add_visit($data);

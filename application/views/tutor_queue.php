@@ -46,7 +46,9 @@
 		<?php foreach ($records as $v): ?> 
 		
 		<tr>
-			<td><?php echo anchor('index.php/form/fill_out/' . $v->studentID . '/' . $v->courseID,'<i class="icon-pencil icon-white"></i>', 'class = "btn btn-primary"'); ?></td>
+			<!-- -- cdc edit 05/28/2013 -- -->
+			<td><?php echo anchor('index.php/form/fill_out/' . $v->studentHash . '/' . $v->courseID,'<i class="icon-pencil icon-white"></i>', 'class = "btn btn-primary"'); ?></td>
+			<!-- /cdc -->
 			<td><?php echo $v->firstName . " " . $v->lastName; ?></td>
 			<td><?php echo $v->courseID; ?></td>
 			<td>

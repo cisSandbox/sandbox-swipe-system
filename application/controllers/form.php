@@ -33,7 +33,8 @@ class Form extends CI_Controller{
 	public function submit(){
 		//need to get tutoredVisitID, tutorID, timeTutored, class, notes
 		$data = array(
-			'studentID' => $this->input->post('studentID'),
+			/*-- cdc edit 05/28/2013 --*/
+			'studentHash' => $this->input->post('studentHash'),
 			'courseID' => $this->input->post('course'),
 			'block' => $this->input->post('block'),
 			'tutorID' => $this->input->post('tutorID'),				//got tutorID
@@ -42,7 +43,7 @@ class Form extends CI_Controller{
 
 		// still need tutoredVisitID, timeTutored, class
 		$this->load->model('visit_model');
-		$data['tv_id'] = $this->visit_model->get_active_visit_for_student($data['studentID']);			//got tutoredVisitID
+		$data['tv_id'] = $this->visit_model->get_active_visit_for_student($data['studentHash']);			//got tutoredVisitID
 
 		$this->load->model('class_model');
 		$data['class'] = $this->class_model->get_class_by_block_and_course($data['block'], $data['courseID']);			//got class

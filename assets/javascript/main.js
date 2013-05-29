@@ -29,6 +29,7 @@ $(document).ready(function(){
 		tmp: "",
 		tutorID: "",
 		addVisit: function() {
+			console.log(this.id + " " + this.roomID + " " + this.course + " " + this.needHelp);
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/add_student_visit",
 				type: 'POST',
@@ -90,6 +91,7 @@ $(document).ready(function(){
 			});
 		},
 		verifyStudent: function() {
+			//console.log(this.id);
 			$.ajax({
 				url:  window.location.origin + "/index.php/main/verify_student",
 				type: 'POST',
