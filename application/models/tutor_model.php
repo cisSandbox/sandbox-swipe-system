@@ -11,7 +11,7 @@ class Tutor_model extends CI_Model {
 	}
 
 	function get_tutor_names() {
-		$query = $this->db->query("select firstName, lastName, t.studentID, tutorID from student s, tutor t where s.studentID = t.studentID");
+		$query = $this->db->query("select firstName, lastName, t.studentHash, tutorID from student s, tutor t where s.studentHash = t.studentHash");
 		return $query->result();
 	}
 
@@ -24,7 +24,7 @@ class Tutor_model extends CI_Model {
 		$sql = "SELECT student.firstName, tutor_ability.courseID, tutor.imgPath, work_visit.workID
 				FROM tutor
 				INNER JOIN tutor_ability ON tutor.tutorID = tutor_ability.tutorID
-				INNER JOIN student ON student.studentID = tutor.studentID
+				INNER JOIN student ON student.studentHash = tutor.studentHash
 				INNER JOIN work_visit ON work_visit.tutorID = tutor.tutorID
 				WHERE UNIX_TIMESTAMP(work_visit.endTime) = 0";
 		$results = $this->db->query($sql)->result();

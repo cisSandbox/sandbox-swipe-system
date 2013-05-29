@@ -5,7 +5,7 @@
 <h1>The Tutor Form</h1>
 <h6>Student</h6>
 	<!-- cdc edit 05/28/2013 -->
-	<input class="span2" name="studentHash" type="text" value="<?php if ($student) echo $student ?>"> 
+	<input class="span3" name="studentHash" type="text" value="<?php if ($student) echo $student ?>"> 
 	<!-- /cdc -->
 	<span class="help-inline">
 		<?php if($student_name): ?>
@@ -16,9 +16,9 @@
 	</span>
 
 <h6>Course</h6>
-<input class="span2" type="text" name="course" value="<?php echo $class ?>">
+<input class="span3" type="text" name="course" value="<?php echo $class ?>">
 <h6>Section</h6>
-<select name="block" class="span2">
+<select name="block" class="span3">
 	<?php foreach ($blocks as $b): ?>
 		<option name="block" value="<?php echo $b->meetingID ?>" /><?php echo $b->block ?></option>
 	<?php endforeach; ?>

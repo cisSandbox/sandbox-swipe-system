@@ -36,7 +36,7 @@ class Main extends CI_Controller {
 		$id = $this->input->post('studentID');
 		$data = array(
 			'roomID' => $this->input->post('roomID'), 
-			'studentID' => null,
+			//'studentID' => null,
 			'courseID' => $courseID,
 			'timeIn' => date("Y-m-d H:i:s"),
 			'needHelp' => $this->input->post('needHelp'),
